@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb Project</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1>Here is my Bulb Control</h1>
+    <button onclick="onbulb()">Turn On</button>
+    <button onclick="offbulb()">Turn Off</button>
+    <button id="but" onclick="toggle()">ON</button>
+    <div class = "off">
+        <img id="off" src="bulb off.jpg" alt="Image not found">
+    </div>
+    
+   <!-- //<img id="off" src="bulb off.jpg" alt="Image not found"> -->
+    <script>
+        let flag = 0;
+        const onbulb = () =>{
+            let obb = document.getElementById("off");
+            obb.setAttribute("src","onbulb.jpg");
+            let d = document.getElementById("but");
+            d.innerHTML = "OFF";
+            flag = 1;
+            
+        }
+        const offbulb = () => {
+            let obb = document.getElementById("off");
+            obb.setAttribute("src","bulb off.jpg");
+            console.log("off");
+            let d = document.getElementById("but");
+            d.innerHTML = "ON";
+            flag = 1;
+        }
+        const toggle = () => {
+            let obb = document.getElementById("off");
+            let sr = obb.getAttribute("src");
+            console.log(sr);
+            if(sr == "bulb off.jpg") {
+                onbulb();
+                let d = document.getElementById("but");
+                console.log("OFFFFF "+d.innerHTML);
+                if(d.innerHTML == "OFF" && flag == 0) {
+                d.innerHTML = "ON";
+                } else {
+                    d.innerHTML = "OFF";
+                }
+                
+            }else {
+                offbulb();
+                let d = document.getElementById("but");
+                console.log("ONNNNNNN "+d.innerHTML);
+                if(d.innerHTML == "ON" && flag == 0) {
+                d.innerHTML = "OFF";
+                }else {
+                    d.innerHTML = "ON";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
